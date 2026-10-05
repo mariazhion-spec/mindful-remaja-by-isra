@@ -130,3 +130,28 @@ with tab4:
     st.caption("Relaksasi: 60 BPM Piano lembut - detak jantung istirahat - WHO ✅ - 3 jam full lembut")
 
     st.info("💡 Atur volume HP 40-60% saja ya, jangan keras. Dengarkan 15-30 menit, 2x sehari sesuai anjuran Kemenkes.")
+st.divider()
+st.subheader("📲 Download / Simpan Aplikasi di HP Seperti APK")
+st.caption("Gratis tanpa Play Store - Progressive Web App (PWA)")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("""
+    **🤖 Android (Chrome):**
+    1. Buka link di **Chrome**
+    2. Klik **titik 3** kanan atas
+    3. Pilih **Tambahkan ke Layar Utama**
+    4. Klik **Tambah** -> Ikon muncul!
+    """)
+with col2:
+    st.markdown("""
+    **🍎 iPhone (Safari):**
+    1. Buka link di **Safari**
+    2. Klik **ikon Share** (kotak panah)
+    3. Pilih **Add to Home Screen**
+    4. Klik **Add**
+    """)
+
+st.success("✅ Gratis tanpa Play Store, jadi seperti APK! Buka tanpa ketik link lagi, privasi aman, Didukung Kemenkes & WHO")
+
+st.markdown("**Link Akses:** https://ynxepju7pux.streamlit.app")
