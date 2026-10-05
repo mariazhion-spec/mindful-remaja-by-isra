@@ -123,7 +123,7 @@ with tab3:
         st.link_button("Download Poster Edukasi Gratis Kemenkes", "https://www.kemkes.go.id")
 with tab4:
     st.subheader("Musik Terapi 60-80 BPM")
-        st.write("**Pilih Musik - Beda Kebutuhan Beda Musik**")
+    st.write("**Pilih Musik - Beda Kebutuhan Beda Musik**")
     mode = st.selectbox("Mode:", ["🧘 Relaksasi 60 BPM", "📚 Fokus 75 BPM", "😌 Calming Cemas", "😴 Tidur 50 BPM"])
     if "Relaksasi" in mode:
         st.audio("https://cdn.pixabay.com/download/audio/2022/06/07/audio_b9bd4170e8.mp3")
