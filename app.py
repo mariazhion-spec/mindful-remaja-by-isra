@@ -125,17 +125,16 @@ with tab4:
     st.subheader("Musik Terapi 60-80 BPM")
     st.write("**Pilih Musik - Beda Kebutuhan Beda Musik**")
     mode = st.selectbox("Mode:", ["🧘 Relaksasi 60 BPM", "📚 Fokus 75 BPM", "😌 Calming Cemas", "😴 Tidur 50 BPM"])
+    
     if "Relaksasi" in mode:
-        st.audio("https://cdn.pixabay.com/download/audio/2022/06/07/audio_b9bd4170e8.mp3")
+        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
         st.caption("Relaksasi - Piano alam, untuk turunkan detak jantung")
     elif "Fokus" in mode:
-        st.audio("https://cdn.pixabay.com/download/audio/2024/09/19/audio_b5b8ceeaf0.mp3")
+        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3")
         st.caption("Fokus - Lofi tanpa lirik untuk belajar")
     elif "Calming" in mode:
-        st.audio("https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3")
+        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3")
         st.caption("Calming - Ombak laut untuk cemas")
     else:
-        st.audio("https://cdn.pixabay.com/download/audio/2021/11/25/audio_962b7d5d64.mp3")
+        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3")
         st.caption("Tidur - Malam tenang 50 BPM")
-st.markdown("---")
-st.caption("© 2026 Mindful-Remaja by Isra | Berbasis Evidence Kemenkes, WHO, I-NAMHS | Bukan diagnosis")
