@@ -61,20 +61,49 @@ tab1, tab2, tab3, tab4 = st.tabs(["📝 SRQ-20", "🧠 DASS-21", "🌸 Edukasi T
 with tab1:
     st.subheader("SRQ-20 - Skrining Umum WHO")
     st.caption("20 pertanyaan untuk deteksi dini - 30 hari terakhir")
-    st.warning("Jika Skor Sedang-Berat, disarankan konseling profesional.")
-    st.info("Normal D<=9 A<=7 S<=14 | Ringan D<=13 A<=9 S<=18 | Sedang D<=20 A<=14 S<=25")
-    st.write("Silakan isi sesuai kode SRQ-20 Ibu sebelumnya di sini ya. Jika butuh kode SRQ-20 lengkap bilang SIA ya Bu.")
-    # --- TEMPEL KODE SRQ-20 IBU YANG LAMA DI BAWAH INI JIKA MASIH ADA ---
+    pertanyaan_srq = [
+        "Sering sakit kepala?", "Nafsu makan buruk?", "Tidur tidak nyenyak?",
+        "Mudah takut?", "Tangan gemetar?", "Merasa gugup?",
+        "Pencernaan buruk?", "Sulit berpikir jernih?", "Merasa tidak bahagia?",
+        "Lebih banyak menangis?", "Sulit menikmati aktivitas?", "Sulit mengambil keputusan?",
+        "Pekerjaan terganggu?", "Tidak mampu berperan?", "Kehilangan minat?",
+        "Merasa tidak berharga?", "Pikiran mengakhiri hidup?", "Selalu merasa lelah?",
+        "Perasaan tidak nyaman di perut?", "Mudah lelah?"
+    ]
+    skor_srq = 0
+    for i, q in enumerate(pertanyaan_srq):
+        jawab = st.radio(f"{i+1}. {q}", ["Tidak", "Ya"], key=f"srq{i}", horizontal=True)
+        if jawab == "Ya": skor_srq += 1
+    st.divider()
+    if skor_srq >= 6:
+        st.error(f"Skor SRQ-20 kamu: {skor_srq} / 20 - Terdeteksi gejala, disarankan konseling")
+    else:
+        st.success(f"Skor SRQ-20 kamu: {skor_srq} / 20 - Normal")
+    st.info("Normal <6 | Butuh perhatian >=6 (WHO)")
 
-# ================= TAB 2 DASS-21 (PUNYA IBU TETAP) =================
 with tab2:
     st.subheader("DASS-21 - Depresi Cemas Stres")
     st.caption("Validasi Indonesia - Zatrahadi 2020")
-    st.write("Depresi: {0} | Cemas: {1} | Stres: {2}")
+    dass_q = [
+        ("Saya sulit beristirahat", "S"), ("Saya sadar mulut saya kering", "A"), ("Saya tidak bisa merasakan hal positif", "D"),
+        ("Saya sesak napas", "A"), ("Sulit memulai sesuatu", "D"), ("Saya bereaksi berlebihan", "S"),
+        ("Tangan gemetar", "A"), ("Saya cemas berlebihan", "S"), ("Khawatir situasi memalukan", "A"),
+        ("Merasa tidak ada harapan", "D"), ("Merasa gelisah", "S"), ("Sulit rileks", "S"),
+        ("Sedih & tertekan", "D"), ("Tidak toleran gangguan", "S"), ("Hampir panik", "A"),
+        ("Tidak antusias", "D"), ("Merasa tidak berharga", "D"), ("Mudah tersinggung", "S"),
+        ("Denyut jantung keras", "A"), ("Takut tanpa alasan", "A"), ("Merasa hidup tak berarti", "D")
+    ]
+    skor_d = skor_a = skor_s = 0
+    for i, (tanya, kode) in enumerate(dass_q):
+        nilai = st.selectbox(f"{i+1}. {tanya}", [0,1,2,3], format_func=lambda x: f"{x} - {'Tidak pernah' if x==0 else 'Kadang' if x==1 else 'Sering' if x==2 else 'Sangat sering'}", key=f"dass{i}")
+        if kode=="D": skor_d+=nilai
+        elif kode=="A": skor_a+=nilai
+        else: skor_s+=nilai
+    D,A,S = skor_d*2, skor_a*2, skor_s*2
+    st.divider()
+    st.write(f"**Depresi: {D} | Cemas: {A} | Stres: {S}**")
     st.warning("Jika Skor Sedang-Berat, disarankan konseling profesional.")
     st.info("Normal D<=9 A<=7 S<=14 | Ringan D<=13 A<=9 S<=18 | Sedang D<=20 A<=14 S<=25")
-    st.write("Silakan isi sesuai kode DASS-21 Ibu sebelumnya di sini ya.")
-
 # ================= TAB 3 EDUKASI BARU - ANTI ERROR =================
 with tab3:
     st.subheader("Edukasi Menenangkan - Kemenkes & WHO 2026")
