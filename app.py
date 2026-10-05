@@ -104,51 +104,55 @@ with tab2:
     st.write(f"**Depresi: {D} | Cemas: {A} | Stres: {S}**")
     st.warning("Jika Skor Sedang-Berat, disarankan konseling profesional.")
     st.info("Normal D<=9 A<=7 S<=14 | Ringan D<=13 A<=9 S<=18 | Sedang D<=20 A<=14 S<=25")
-# ================= TAB 3 EDUKASI BARU - ANTI ERROR =================
 with tab3:
-    st.subheader("Edukasi Menenangkan - Kemenkes & WHO 2026")
+    st.subheader("Edukasi Kesehatan Mental Remaja")
     st.caption("Sumber: Buku Pertolongan Pertama Luka Psikologis Kemenkes RI & WHO mhGAP")
+    
     st.info("Ingat ya: 1 dari 3 remaja Indonesia pernah merasa seperti kamu. Kamu tidak sendiri. Ini normal (I-NAMHS 2022)")
-
-    pilihan = st.selectbox("Pilih topik yang ingin kamu baca:", ["Cemas & Overthinking", "Sedih Berkepanjangan", "Stres Tugas & Medsos", "Self-Harm & Luka Psikologis", "Cara Tolong Teman"])
-
-    if "Cemas" in pilihan:
-        st.markdown("### FAKTA TENANG - WHO 2022")
-        st.markdown("Cemas itu alarm tubuh normal. Otakmu sedang melindungi kamu, bukan rusak.")
-        st.markdown("**Yang terjadi:** Jantung deg-degan, napas cepat, susah tidur. Bisa dilatih kembali.")
-        st.markdown("**3 Langkah Tenang (WHO):**")
-        st.markdown("1. Grounding 5-4-3-2-1: Sebut 5 lihat, 4 sentuh, 3 dengar, 2 cium, 1 rasa")
-        st.markdown("2. Napas Kotak: Tarik 4 detik - Tahan 4 - Hembus 4 - Tahan 4. Ulang 4x")
-        st.markdown("3. Batasi medsos 1 jam sebelum tidur - turunkan cemas 50 persen")
-        st.success("Kamu aman saat ini. Cemas ini akan lewat seperti ombak.")
-
-    elif "Sedih" in pilihan:
-        st.markdown("### FAKTA TENANG - Kemenkes 2026")
-        st.markdown("Sedih bukan karena lemah. Itu luka psikologis tak terlihat.")
-        st.markdown("1. Gerak 15 menit jalan kaki - turunkan sedih 26 persen")
-        st.markdown("2. Jurnal 3 Hal Baik hari ini")
-        st.markdown("3. Tidur jam sama 7-9 jam")
-        st.success("Tidak apa-apa tidak baik hari ini.")
-
-    elif "Stres" in pilihan:
-        st.markdown("### FAKTA TENANG")
-        st.markdown("Pomodoro: Belajar 25 menit istirahat 5 menit (WHO)")
-        st.markdown("Kotak Khawatir: Punya jam khawatir 15 menit sore saja")
-
-    elif "Self-Harm" in pilihan or "Luka" in pilihan:
-        st.markdown("### Pertolongan Pertama (Kemenkes: Tanya, Dengarkan, Temani, Hubungkan)")
-        st.markdown("1. TANYA lembut, 2. DENGARKAN tanpa hakimi, 3. TEMANI, 4. HUBUNGKAN ke 119 ext 8")
-        st.warning("Rasa sakitmu valid. Kamu berhak dapat bantuan aman.")
-
+    
+    topik = st.selectbox("Pilih topik yang ingin kamu baca:", 
+        ["Cara Tolong Teman", "Grounding 5-4-3-2-1", "Napas Kotak", "Cara Jadi First Aider di Sekolah"])
+    
+    if topik == "Cara Tolong Teman":
+        st.markdown("### Cara Tolong Teman")
+        st.write("1. Dengarkan tanpa menghakimi\n2. Katakan 'Aku di sini buat kamu'\n3. Jangan janji rahasiakan kalau ada bahaya\n4. Ajak ke Guru BK / orang dewasa yang dipercaya")
+    elif topik == "Grounding 5-4-3-2-1":
+        st.markdown("### Teknik Grounding 5-4-3-2-1")
+        st.write("Saat cemas: Sebut 5 hal dilihat, 4 hal disentuh, 3 hal didengar, 2 hal dicium, 1 hal dirasa")
+    elif topik == "Napas Kotak":
+        st.markdown("### Napas Kotak (Box Breathing)")
+        st.write("Tarik napas 4 detik - Tahan 4 detik - Hembus 4 detik - Tahan 4 detik. Ulangi 4x")
     else:
         st.markdown("### Cara Jadi First Aider di Sekolah")
-        st.markdown("Lihat perubahan, dekati pelan, jangan janji rahasiakan jika self-harm, hubungkan ke Guru BK / 119 ext 8")
-
+        st.write("Lihat perubahan, dekati pelan, jangan janji rahasiakan jika self-harm, hubungkan ke Guru BK / 119 ext 8")
+    
     st.divider()
     st.success("Jika sangat berat / ada pikiran menyakiti diri: Hubungi 119 ext 8 (Kemenkes 24 Jam GRATIS)")
-    st.link_button("Download Poster Edukasi Gratis Kemenkes", "https://www.kemkes.go.id")
-
-# ================= TAB 4 MUSIK TERAPI + DOWNLOAD - DIKEMBALIKAN =================
+    
+    # INI TOMBOL DOWNLOAD POSTER NYA BU - SUDAH JADI
+    st.markdown("### 📥 Download Poster Edukasi")
+    poster_content = """
+    POSTER EDUKASI KESEHATAN MENTAL REMAJA
+    KEMENKES RI x WHO mhGAP
+    
+    CARA JADI FIRST AIDER DI SEKOLAH:
+    1. LIHAT - Lihat perubahan perilaku teman
+    2. DEKATI - Dekati pelan dengan empati
+    3. DENGARKAN - Dengarkan tanpa menghakimi
+    4. HUBUNGKAN - Hubungkan ke Guru BK / 119 ext 8
+    
+    Ingat: 1 dari 3 remaja pernah merasa seperti kamu.
+    Kamu Tidak Sendiri!
+    
+    Hotline: 119 ext 8 - GRATIS 24 Jam
+    """
+    st.download_button(
+        label="📥 Download Poster Edukasi Gratis Kemenkes",
+        data=poster_content,
+        file_name="Poster_Edukasi_Kesehatan_Mental_Remaja.txt",
+        mime="text/plain"
+    )
+    st.caption("Bisa di-download dan di-print untuk ditempel di sekolah Bu!")# ================= TAB 4 MUSIK TERAPI + DOWNLOAD - DIKEMBALIKAN =================
 with tab4:
     st.subheader("Musik Terapi Sesuai Anjuran WHO 60-80 BPM")
     st.caption("Tanpa lirik, instrumental lembut, volume 40-60 dB - untuk turunkan cemas")
