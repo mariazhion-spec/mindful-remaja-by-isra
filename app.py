@@ -1,13 +1,22 @@
 import streamlit as st
 
 st.set_page_config(page_title="Mindful-Remaja by Isra", page_icon="💜", layout="centered")
+# --- FITUR BARU: UMUR + HOTLINE DARURAT ---
+st.sidebar.markdown("### 👤 Profil")
+umur_kategori = st.sidebar.selectbox("Pilih Usia:", ["15-18 th (Remaja)", "19-24 th (Mahasiswa)", "25+ th (Dewasa)"])
+st.sidebar.info(f"Anda: {umur_kategori}")
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🚨 TOMBOL DARURAT")
+st.sidebar.error("Jika ada pikiran ingin menyakiti diri")
+st.sidebar.link_button("📞 HUBUNGI SEJIWA 119 ext 8 (24 JAM)", "tel:119", type="primary", use_container_width=True)
+st.sidebar.link_button("💬 Chat WA SEJIWA", "https://wa.me/628111385353")
 
 st.title("💜 MINDFUL-REMAJA BY ISRA")
-st.caption("Skrining, Edukasi & Terapi Remaja 15-24 Tahun | Evidence-Based Kemenkes & WHO")
+st.caption(f"Skrining, Edukasi & Terapi {umur_kategori} | Evidence-Based Kemenkes & WHO")
 st.markdown("---")
 
-tab1, tab2, tab3, tab4 = st.tabs(["📝 SRQ-20", "🧠 DASS-21", "📚 Edukasi", "🎵 Musik Terapi"])
-
+tab1, tab2, tab3, tab4 = st.tabs(["📋 SRQ-20", "🧠 DASS-21", "📚 Edukasi", "🎵 Musik Terapi"])
 with tab1:
     st.subheader("SRQ-20 - Cek Kesehatan Gratis Kemenkes")
     st.info("Jawab YA/TIDAK. Dalam 30 hari terakhir.")
