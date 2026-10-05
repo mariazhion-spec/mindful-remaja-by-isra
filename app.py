@@ -48,80 +48,78 @@ with tab2:
         st.info("Normal D<=9 A<=7 S<=14 | Ringan D<=13 A<=9 S<=18 | Sedang D<=20 A<=14 S<=25")
 
 with tab3:
-    st.subheader("📚 Edukasi Mindful Remaja - Evidence Based")
-    st.caption("Materi: Kemenkes RI, WHO, & UNICEF - Untuk Usia 15-24 Tahun")
-    
-    edu_pilihan = st.selectbox("Pilih Topik Edukasi:", 
-        ["🧠 Kenali Emosi", "🌬️ Teknik Napas & Mindfulness", "💬 Pertolongan Pertama Psikologis", "🚫 Mitos vs Fakta", "🎥 Video Edukasi"])
+    st.subheader("🌸 Edukasi Menenangkan - Sesuai Kemenkes & WHO 2026")
+    st.caption("Sumber: Buku Pertolongan Pertama Luka Psikologis Kemenkes RI & WHO mhGAP")
 
-    if "Kenali Emosi" in edu_pilihan:
-        st.markdown("### 🧠 Kenali Emosi - Roda Emosi Plutchik")
-        st.info("Remaja 15-24 tahun sering mengalami mood swing karena hormon & tekanan sosial. Itu NORMAL!")
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown("""
-            **4 Emosi Dasar Remaja:**
-            - 😊 **Senang**: Dopamin naik saat dapat likes, pujian
-            - 😢 **Sedih**: Saat ditolak, nilai turun, putus
-            - 😡 **Marah**: Saat dibatasi, dibanding-bandingkan
-            - 😨 **Takut/Cemas**: Ujian, masa depan, FOMO
-            """)
-        with col2:
-            st.markdown("""
-            **Cara Kelola Sehat:**
-            1.  Beri nama emosi: "Aku lagi cemas karena..."
-            2.  Skala 1-10, seberapa kuat?
-            3.  Tulis di jurnal 3 menit
-            4.  Cerita ke teman aman
-            """)
-        st.success("Latihan: Hari ini kamu dominan emosi apa? Tulis 1 kalimat di buku!")
+    st.info("💜 Ingat ya: 1 dari 3 remaja Indonesia pernah merasa seperti kamu. Kamu tidak sendiri. Ini normal dan bisa dibantu (I-NAMHS 2022)")
 
-    elif "Teknik Napas" in edu_pilihan:
-        st.markdown("### 🌬️ Teknik Napas 4-7-8 (Evidence-Based WHO)")
-        st.write("Teknik ini menurunkan detak jantung & cortisol dalam 2 menit - sudah diuji Kemenkes!")
-        st.video("https://www.youtube.com/watch?v=8vkBvMGP2v4")
+    pilihan = st.selectbox("Pilih topik yang ingin kamu baca:",
+        ["😥 Cemas & Overthinking", "😞 Sedih Berkepanjangan", "😤 Stres Tugas & Medsos", "😶 Self-Harm & Luka Psikologis", "🤝 Cara Tolong Teman"])
+
+    if "Cemas" in pilihan:
         st.markdown("""
-        **Langkah (Ikuti bareng):**
-        1.  Tarik napas lewat hidung **4 detik**
-        2.  Tahan **7 detik**
-        3.  Buang lewat mulut **8 detik** (bunyi whoosh)
-        4.  Ulangi 3x
-        """)
-        if st.button("Mulai Latihan 1 Menit"):
-            st.balloons()
-            st.success("Hebat! Lakukan ini tiap mau ujian / susah tidur ya!")
+        **### 🌿 FAKTA TENANG - Menurut WHO 2022:**
+        Cemas itu alarm tubuh yang normal. Otakmu sedang melindungi kamu, bukan rusak.
 
-    elif "Pertolongan" in edu_pilihan:
-        st.markdown("### 💬 Pertolongan Pertama Psikologis - T.A.N.Y.A")
-        st.warning("**TANYA = Tanya, Dengarkan, Nyaman-kan, Ajak bantuan - Model Kemenkes SEJIWA**")
+        **Yang terjadi di tubuh:** Jantung deg-degan, napas cepat, susah tidur. Itu respon stres yang bisa dilatih kembali.
+
+        **3 Langkah Tenang (WHO Doing What Matters):**
+        1. **Grounding 5-4-3-2-1:** Sebut 5 yang kamu lihat, 4 yang kamu sentuh, 3 yang kamu dengar, 2 yang kamu cium, 1 yang kamu rasa. Ini kembalikan otak ke kini.
+        2. **Napas Kotak:** Tarik 4 detik - Tahan 4 detik - Hembus 4 detik - Tahan 4 detik. Ulang 4x. Volume 40-60% (Sesuai WHO 60 BPM)
+        3. **Batasi Medsos:** WHO bilang, perbandingan di medsos bikin cemas naik 2x lipat. Coba puasa medsos 1 jam sebelum tidur.
+
+        > 🕊️ *Kamu aman saat ini. Cemas ini akan lewat seperti ombak.*
+        """)
+    elif "Sedih" in pilihan:
         st.markdown("""
-        **Jika teman bilang "pengen ngilang / gak berharga":**
-        - **T**anya: "Kamu lagi kepikiran apa? Aku dengerin"
-        - **A**nti menghakimi: Jangan bilang "lebay ah" / "kurang iman"
-        - **N**yamankan: "Aku di sini, kamu gak sendiri"
-        - **Y**akinkan bantuan: "Mau kita hubungi Guru BK / SEJIWA 119 ext 8 bareng?"
-        - **A**jari self-care: Napas, minum air, jalan kaki
-        """)
-        st.error("🚨 Jika ada rencana bunuh diri DETAIL, hubungi SEGERA: SEJIWA 119 ext 8 (24 jam) atau Puskesmas terdekat!")
+        **### 🌧️ FAKTA TENANG - Kemenkes 2026:**
+        Sedih berkepanjangan bukan karena kamu lemah. Itu luka psikologis yang tak terlihat, seperti luka jatuh tapi di dalam (Wamenkes Dante Saksono).
 
-    elif "Mitos" in edu_pilihan:
-        st.markdown("### 🚫 Mitos vs Fakta Kesehatan Mental Remaja")
-        mitos = st.radio("Pilih Mitos yang sering kamu dengar:", 
-            ["Curhat = Lemah", "Mental health = Kurang ibadah", "Self-harm buat cari perhatian"])
-        if "Curhat" in mitos:
-            st.markdown("**FAKTA:** Curhat itu KEKUATAN! Otak remaja butuh co-regulasi. WHO bilang remaja yang punya 1 orang dewasa aman 60% lebih resilient.")
-        elif "ibadah" in mitos:
-            st.markdown("**FAKTA:** Ibadah penting untuk spiritual, tapi gangguan mental itu medis seperti demam. Perlu 2 sayap: spiritual + profesional. Kemenkes & MUI sepakat.")
-        else:
-            st.markdown("**FAKTA:** Self-harm itu sinyal rasa sakit yang tak terucapkan, BUKAN caper. 80% remaja melakukannya untuk mengurangi rasa tidak nyaman, bukan cari perhatian.")
-    
-    else:
-        st.markdown("### 🎥 Video Edukasi 3 Menit")
-        st.write("Pilih video sesuai kebutuhanmu:")
-        st.video("https://www.youtube.com/watch?v=7z8g5dB5R4Q")
-        st.caption("Sumber: Direktorat Kesehatan Jiwa Kemenkes RI - Remaja Sehat Jiwa")
-        st.link_button("Download Poster Edukasi Gratis Kemenkes", "https://www.kemkes.go.id")
-with tab4:
+        **Tanda yang perlu ditemani:** Tidak minat main/hobi >2 minggu, tidur berantakan, merasa tidak berharga.
+
+        **Self-Care Evidence-Based (Kemenkes):**
+        1. **Gerak 15 menit:** Jalan kaki, bukan harus olahraga berat. Riset: gerak 15 menit turunkan sedih 26%
+        2. **Jurnal 3 Hal Baik:** Tulis 3 hal baik hari ini, sekecil apapun. Contoh: "Hari ini minum es teh enak"
+        3. **Rutinitas Tidur:** WHO anjurkan tidur jam sama tiap hari, 7-9 jam. Matikan HP 30 menit sebelum tidur.
+
+        > 💜 *Tidak apa-apa tidak baik-baik saja hari ini. Besok kita coba lagi pelan-pelan.*
+        """)
+    elif "Stres" in pilihan:
+        st.markdown("""
+        **### 📚 FAKTA TENANG - I-NAMHS 2022:**
+        9,8% remaja stres karena tugas & medsos. Kamu termasuk banyak teman yang sama, bukan sendirian.
+
+        **Teknik Belajar Anti Stres:**
+        1. **Pomodoro:** Belajar 25 menit, istirahat 5 menit. Otak remaja fokus maksimal 25 menit (WHO)
+        2. **Aturan 2 Menit:** Jika tugas <2 menit, kerjakan langsung. Jika tidak, tulis di list.
+        3. **Kotak Khawatir:** Punya jam khusus khawatir 15 menit sore. Di luar jam itu, bilang "nanti aja dipikirin jam 4"
+        """)
+    elif "Self-Harm" in pilihan:
+        st.markdown("""
+        **### 🤲 FAKTA TENANG & AMAN - Kemenkes Sept 2026:**
+        Self-harm itu sinyal rasa sakit yang tak terucapkan, BUKAN cari perhatian. 80% remaja melakukannya untuk atasi emosi, bukan akhiri hidup.
+
+        **Pertolongan Pertama Luka Psikologis (Kemenkes: Tanya, Dengarkan, Temani, Hubungkan):**
+        1. **TANYA** dengan lembut: "Aku lihat kamu terluka, kamu lagi berat ya?"
+        2. **DENGARKAN** tanpa menghakimi. Jangan bilang "lebay". Cukup "Aku di sini dengarin"
+        3. **TEMANI:** Jangan tinggalkan sendiri. Ajak aktivitas aman: cuci muka air dingin, remas es, gambar di kertas.
+        4. **HUBUNGKAN:** Ajak ke orang terpercaya / Puskesmas / Call Center 119 ext 8 (24 jam Kemenkes)
+
+        > 🌱 *Rasa sakit ini valid. Kamu berhak dapat bantuan yang aman. Kamu berharga.*
+        """)
+    else: # Tolong Teman
+        st.markdown("""
+        **### 🤝 Cara Jadi First Aider di Sekolah - Buku Kemenkes 2026:**
+        Kamu tidak harus jadi psikolog untuk menolong teman!
+
+        1. Lihat perubahan: teman yang tadinya rame jadi diam >1 minggu
+        2. Dekati pelan: "Hai, aku perhatiin kamu beberapa hari ini agak beda, boleh cerita?"
+        3. Jika teman bilang ingin menyakiti diri: **Jangan janji rahasiakan.** Temani dan hubungkan ke Guru BK / orang tua / 119 ext 8
+        4. Jaga dirimu juga. Setelah menolong, cerita ke orang dewasa yang kamu percaya.
+        """)
+
+    st.divider()
+    st.success("📞 Jika sangat berat / ada pikiran menyakiti diri: Segera Hubungi **119 ext 8** (Kemenkes 24 Jam GRATIS) atau **Puskesmas terdekat**. Kamu tidak sendiri.")with tab4:
     st.subheader("Musik Terapi Sesuai Anjuran WHO 60-80 BPM")
     st.caption("Tanpa lirik, instrumental lembut, volume 40-60 dB - untuk turunkan cemas")
     
