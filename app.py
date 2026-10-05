@@ -16,7 +16,7 @@ st.title("💜 MINDFUL-REMAJA BY ISRA")
 st.caption(f"Skrining, Edukasi & Terapi {umur_kategori} | Evidence-Based Kemenkes & WHO")
 st.markdown("---")
 
-tab1, tab2, tab3, tab4 = st.tabs(["📋 SRQ-20", "🧠 DASS-21", "📚 Edukasi", "🎵 Musik Terapi"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["😟 SRQ-20", "🧠 DASS-21", "📚 Edukasi", "🎵 Musik Terapi", "🎓 8 Modul + Sertifikat"])
 with tab1:
     st.subheader("SRQ-20 - Cek Kesehatan Gratis Kemenkes")
     st.info("Jawab YA/TIDAK. Dalam 30 hari terakhir.")
@@ -184,3 +184,56 @@ with tab4:
     st.success("Gratis tanpa Play Store, jadi seperti APK! Buka tanpa ketik link lagi")
     st.markdown("**Link Akses:** https://ynxepju7pux.streamlit.app")
     st.caption("Created by Isra - Skripsi Keperawatan Jiwa | Evidence Based Kemenkes & WHO 2026 | Hosted with Streamlit")
+with tab5:
+    st.subheader("📚 Edukasi Lengkap 8 Modul - Video, Jurnal, Quiz & Sertifikat")
+    st.caption("Ini yang ada di poster promosi Ibu yang dilingkari hijau!")
+    st.info("Selesaikan 8 modul untuk dapat Sertifikat First Aider!")
+
+    if 'modul_selesai' not in st.session_state:
+        st.session_state.modul_selesai = [False]*8
+        st.session_state.jurnal = [""]*8
+
+    modul_list = [
+        {"judul": "MODUL 1: Kenali Emosi", "video": "https://www.youtube.com/watch?v=5qap5aO4i9A", "materi": "Kenali emosi: Senang, Sedih, Marah, Takut."},
+        {"judul": "MODUL 2: Cemas & Overthinking", "video": "https://www.youtube.com/watch?v=O-6f5wQXSu8", "materi": "Grounding 5-4-3-2-1 + Napas Kotak"},
+        {"judul": "MODUL 3: Sedih Berkepanjangan", "video": "https://www.youtube.com/watch?v=3-s0UIYc7o4", "materi": "Jurnal 3 Hal Baik & Gerak 15 menit"},
+        {"judul": "MODUL 4: Stres Tugas", "video": "https://www.youtube.com/watch?v=ZToicYcHIOU", "materi": "Pomodoro 25-5"},
+        {"judul": "MODUL 5: T.A.N.Y.A Self-Harm", "video": "https://www.youtube.com/watch?v=5D2E6z0m6cA", "materi": "TANYA, DENGARKAN, HUBUNGKAN 119 ext 8"},
+        {"judul": "MODUL 6: Jadi First Aider", "video": "https://www.youtube.com/watch?v=Db9yrH8N9c8", "materi": "LIHAT-DEKATI-DENGARKAN-HUBUNGKAN"},
+        {"judul": "MODUL 7: Napas 4-7-8 WHO", "video": "https://www.youtube.com/watch?v=YRPhh4Ybb_g", "materi": "Tarik 4 Tahan 7 Hembus 8"},
+        {"judul": "MODUL 8: Sertifikat", "video": "https://www.youtube.com/watch?v=ZbZSe6N_BXs", "materi": "Review & Ambil Sertifikat!"}
+    ]
+
+    progress = sum(st.session_state.modul_selesai) / 8
+    st.progress(progress, text=f"Progress: {int(progress*100)}% - {sum(st.session_state.modul_selesai)}/8 Modul")
+
+    pilih = st.selectbox("Pilih Modul:", [f"{i+1}. {m['judul']}" for i,m in enumerate(modul_list)], key="pilih_modul5")
+    idx = int(pilih.split(".")[0]) - 1
+    m = modul_list[idx]
+
+    st.markdown(f"### {m['judul']}")
+    st.video(m['video'])
+    st.info(m['materi'])
+
+    st.markdown("#### 📝 Jurnal Refleksi")
+    st.session_state.jurnal[idx] = st.text_area("Tulis refleksimu:", value=st.session_state.jurnal[idx], key=f"jurnal5_{idx}")
+
+    st.markdown("#### ❓ Quiz Mini")
+    q = st.radio("Sudah paham & akan praktek?", ["Sudah paham & Ya", "Belum"], key=f"quiz5_{idx}")
+
+    if st.button(f"✅ Selesaikan {m['judul']}", key=f"btn5_{idx}"):
+        if st.session_state.jurnal[idx].strip()!="" and q=="Sudah paham & Ya":
+            st.session_state.modul_selesai[idx]=True
+            st.success("Modul selesai!")
+            st.balloons()
+        else:
+            st.warning("Isi Jurnal dulu & pilih Sudah paham ya!")
+
+    if sum(st.session_state.modul_selesai)==8:
+        st.divider()
+        st.success("🎉 SELAMAT 8 MODUL SELESAI!")
+        nama = st.text_input("Nama untuk Sertifikat:", "Isra - First Aider", key="nama_cert5")
+        if st.button("🎓 Download Sertifikat", key="dl_cert5"):
+            cert = f"SERTIFIKAT First Aider - {nama} - Telah menyelesaikan 8 Modul Mindful Remaja by Isra - Kemenkes x WHO 2026"
+            st.download_button("📜 Download Sertifikat", data=cert, file_name=f"Sertifikat_{nama}.txt", key="dl_btn5")
+            st.balloons()
