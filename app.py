@@ -122,19 +122,21 @@ with tab3:
         st.caption("Sumber: Direktorat Kesehatan Jiwa Kemenkes RI - Remaja Sehat Jiwa")
         st.link_button("Download Poster Edukasi Gratis Kemenkes", "https://www.kemkes.go.id")
 with tab4:
-    st.subheader("Musik Terapi 60-80 BPM")
-    st.write("**Pilih Musik - Beda Kebutuhan Beda Musik**")
-    mode = st.selectbox("Mode:", ["🧘 Relaksasi 60 BPM", "📚 Fokus 75 BPM", "😌 Calming Cemas", "😴 Tidur 50 BPM"])
-    
+    st.subheader("Musik Terapi Sesuai Anjuran WHO 60-80 BPM")
+    st.caption("Tanpa lirik, instrumental lembut, volume 40-60 dB - untuk turunkan cemas")
+    mode = st.selectbox("Pilih Kebutuhan:", ["🧘 Relaksasi 60 BPM - Piano Lembut", "📚 Fokus 75 BPM - Lofi Tenang", "😌 Calming Cemas - Suara Alam", "😴 Tidur 50 BPM - Musik Tidur"])
+
     if "Relaksasi" in mode:
-        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-        st.caption("Relaksasi - Piano alam, untuk turunkan detak jantung")
+        st.video("https://www.youtube.com/watch?v=77ZozI0rw7w")
+        st.caption("Relaksasi: Piano 60 BPM - Menurunkan detak jantung sesuai WHO")
     elif "Fokus" in mode:
-        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3")
-        st.caption("Fokus - Lofi tanpa lirik untuk belajar")
+        st.video("https://www.youtube.com/watch?v=5qap5aO4i9A")
+        st.caption("Fokus: Lofi 75 BPM tanpa lirik - untuk belajar")
     elif "Calming" in mode:
-        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3")
-        st.caption("Calming - Ombak laut untuk cemas")
+        st.video("https://www.youtube.com/watch?v=lTRiuFIQ8KQ")
+        st.caption("Calming: Suara ombak + flute 60 BPM - untuk cemas")
     else:
-        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3")
-        st.caption("Tidur - Malam tenang 50 BPM")
+        st.video("https://www.youtube.com/watch?v=77ZozI0rw7w")
+        st.caption("Tidur: 50-60 BPM malam - volume pelan")
+
+    st.info("💡 Atur volume HP 40-60% saja ya, jangan keras. Dengarkan 15-30 menit, 2x sehari sesuai anjuran Kemenkes.")
