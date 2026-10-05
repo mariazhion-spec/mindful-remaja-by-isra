@@ -1,0 +1,9 @@
+{
+  "name": "Mindful Remaja by Isra",
+  "short_name": "Mindful Remaja",
+  "icons": [{"src": "icon.png","sizes": "512x512","type": "image/png"}],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#7c3aed",
+  "theme_color": "#7c3aed"
+}
