@@ -127,16 +127,16 @@ with tab4:
     mode = st.selectbox("Pilih Kebutuhan:", ["🧘 Relaksasi 60 BPM - Piano Lembut", "📚 Fokus 75 BPM - Lofi Tenang", "😌 Calming Cemas - Suara Alam", "😴 Tidur 50 BPM - Musik Tidur"])
 
     if "Relaksasi" in mode:
-        st.video("https://www.youtube.com/watch?v=77ZozI0rw7w")
-        st.caption("Relaksasi: Piano 60 BPM - Menurunkan detak jantung sesuai WHO")
+        st.audio("https://www.bensound.com/bensound-music/bensound-slowmotion.mp3")
+        st.caption("Relaksasi: 60 BPM Piano lembut - detak jantung istirahat - WHO ✅")
     elif "Fokus" in mode:
-        st.video("https://www.youtube.com/watch?v=5qap5aO4i9A")
-        st.caption("Fokus: Lofi 75 BPM tanpa lirik - untuk belajar")
+        st.audio("https://www.bensound.com/bensound-music/bensound-pianomoment.mp3")
+        st.caption("Fokus: 75 BPM tanpa lirik - untuk belajar konsentrasi ✅")
     elif "Calming" in mode:
-        st.video("https://www.youtube.com/watch?v=lTRiuFIQ8KQ")
-        st.caption("Calming: Suara ombak + flute 60 BPM - untuk cemas")
+        st.audio("https://www.bensound.com/bensound-music/bensound-anewbeginning.mp3")
+        st.caption("Calming: 60 BPM flute + alam - untuk cemas turun ✅")
     else:
-        st.video("https://www.youtube.com/watch?v=77ZozI0rw7w")
-        st.caption("Tidur: 50-60 BPM malam - volume pelan")
+        st.audio("https://www.bensound.com/bensound-music/bensound-sweetdreams.mp3")
+        st.caption("Tidur: 50 BPM lembut malam - atur volume 40% ✅")
 
     st.info("💡 Atur volume HP 40-60% saja ya, jangan keras. Dengarkan 15-30 menit, 2x sehari sesuai anjuran Kemenkes.")
