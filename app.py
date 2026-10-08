@@ -107,21 +107,13 @@ with tab3:
             st.write("---")
 
 # TAB 4 MUSIK YOUTUBE
+# TAB 4 MUSIK YOUTUBE - GANTI DENGAN LINK KAKAK
 with tab4:
-    st.subheader("🎧 Musik Relaksasi - YouTube (Pasti Bunyi)")
-    st.write("Pilih musik, pakai headset, tarik napas 4-7-8")
-    pilihan = st.selectbox("Pilih Musik:", ["Relaksasi Napas 4-7-8", "Musik Tidur Tenang", "Suara Hujan Tenang", "Musik Meditasi 5 Menit"])
-    # Link stabil
-    links = {
-        "Relaksasi Napas 4-7-8": "https://www.youtube.com/watch?v=QKkxl1Z1i1o",
-        "Musik Tidur Tenang": "https://www.youtube.com/watch?v=77ZozI0rw7w",
-        "Suara Hujan Tenang": "https://www.youtube.com/watch?v=mPZkdNFkNps",
-        "Musik Meditasi 5 Menit": "https://www.youtube.com/watch?v=5Y76XIgwVyI"
-    }
-    st.video(links[pilihan])
-    st.link_button("🔗 Buka di YouTube (jika tidak bunyi)", "https://www.youtube.com/results?search_query=musik+relaksasi+tidur")
+    st.subheader("🎧 Musik Relaksasi - Tidur Tenang")
+    st.write("Pakai headset, tarik napas 4-7-8 sambil dengarkan")
+    st.video("https://www.youtube.com/watch?v=77ZozI0rw7w")
+    st.link_button("🔗 Buka di YouTube (jika tidak bunyi)", "https://youtu.be/77ZozI0rw7w?si=4kCd8W9YwVV3Qoky")
     st.info("**Cara:** Tarik 4 detik - Tahan 7 detik - Buang 8 detik sambil dengar musik.")
-
 # TAB 5 BANTUAN DARURAT
 with tab5:
     st.subheader("🚨 Bantuan Darurat - Tombol Langsung Klik")
