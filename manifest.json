@@ -1,9 +1,20 @@
 {
   "name": "Mindful Remaja by Isra",
-  "short_name": "Mindful Remaja",
-  "icons": [{"src": "icon.png","sizes": "512x512","type": "image/png"}],
+  "short_name": "Mindful Isra",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#7c3aed",
-  "theme_color": "#7c3aed"
+  "background_color": "#ffffff",
+  "theme_color": "#7c4dff",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/mariazhion-spec/mindful-remaja-by-isra/main/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/mariazhion-spec/mindful-remaja-by-isra/main/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
