@@ -6,6 +6,10 @@ try:
     st.set_page_config(page_title="Mindful Remaja by Isra", page_icon="logo.png", layout="wide")
 except:
     pass
+    st.markdown("""
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/mariazhion-spec/mindful-remaja-by-isra/main/logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/mariazhion-spec/mindful-remaja-by-isra/main/logo.png">
+""", unsafe_allow_html=True)
 
 if "jurnal" not in st.session_state:
     st.session_state.jurnal = []
