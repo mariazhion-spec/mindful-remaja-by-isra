@@ -1,155 +1,147 @@
 import streamlit as st
 import datetime
 
-# === FINAL V4 - MINDFUL REMAJA BY ISRA - ICON + JURNAL PINTAR + VIDEO FIX ===
+# === V5 FINAL STABIL - NO VIDEO ERROR - EDUKASI PERSONAL + MUSIK YT + DARURAT JELAS ===
 try:
     st.set_page_config(page_title="Mindful Remaja by Isra - FINAL", page_icon="logo.png", layout="wide")
 except:
     st.set_page_config(page_title="Mindful Remaja by Isra - FINAL", page_icon="💜", layout="wide")
-
-# DATA 8 MODUL - VIDEO FIX ANTI HITAM
-MODUL_DATA = {
-    "1. MODUL 1: Kenali Emosi": {
-        "desc": "Mengenal emosi dasar: senang, sedih, marah, takut. Semua emosi itu normal.",
-        "video": "https://www.youtube.com/watch?v=5Y76XIgwVyI",
-        "edukasi": "Tugas hari ini: Tulis 3 emosi yang kamu rasakan di Jurnal Tab 3 ya."
-    },
-    "2. MODUL 2: Kenali Stres": {
-        "desc": "Tanda stres: susah tidur, pusing, malas makan. Bedakan stres ringan & berat.",
-        "video": "https://www.youtube.com/watch?v=QKkxl1Z1i1o",
-        "edukasi": "Saat stres, coba tarik napas 4-7-8 di Tab 4 Musik."
-    },
-    "3. MODUL 3: Cemas & Khawatir": {
-        "desc": "Cemas sebelum ujian wajar. Pelajari teknik grounding 5-4-3-2-1.",
-        "video": "https://www.youtube.com/watch?v=5Y76XIgwVyI",
-        "edukasi": "Grounding: Sebut 5 hal yang kamu LIHAT, 4 yang kamu SENTUH, 3 yang kamu DENGAR."
-    },
-    "4. MODUL 4: Sedih Berkepanjangan": {
-        "desc": "Sedih >2 minggu & tidak minat main perlu perhatian khusus.",
-        "video": "https://www.youtube.com/watch?v=QKkxl1Z1i1o",
-        "edukasi": "Kamu tidak sendiri. Cerita ke guru BK atau hubungi SEJIWA 119 ext 8."
-    },
-    "5. MODUL 5: Mindfulness & Napas 4-7-8": {
-        "desc": "Latihan napas: 4 detik tarik, 7 detik tahan, 8 detik buang.",
-        "video": "https://www.youtube.com/watch?v=QKkxl1Z1i1o",
-        "edukasi": "Lakukan 3x sehari pagi-siang-malam."
-    },
-    "6. MODUL 6: Tidur Sehat": {
-        "desc": "Remaja butuh 8-9 jam tidur. Kurang tidur bikin emosi labil.",
-        "video": "https://www.youtube.com/watch?v=5Y76XIgwVyI",
-        "edukasi": "Matikan HP 30 menit sebelum tidur malam."
-    },
-    "7. MODUL 7: Komunikasi & Support System": {
-        "desc": "Cara bilang 'tidak' & cara minta tolong tanpa di-judge.",
-        "video": "https://www.youtube.com/watch?v=QKkxl1Z1i1o",
-        "edukasi": "Cari 1 orang dewasa yang kamu percaya untuk cerita."
-    },
-    "8. MODUL 8: Rencana Sehat Mental": {
-        "desc": "Buat rencana harian: jurnal, musik tenang, olahraga ringan.",
-        "video": "https://www.youtube.com/watch?v=5Y76XIgwVyI",
-        "edukasi": "Tulis 3 hal yang membuatmu bersyukur hari ini."
-    }
-}
 
 if "jurnal" not in st.session_state:
     st.session_state.jurnal = []
 if "skor_srq" not in st.session_state:
     st.session_state.skor_srq = 0
 
-# HEADER
 try:
-    st.image("logo.png", width=100)
+    st.image("logo.png", width=90)
 except:
     pass
 st.title("Mindful by Isra - Bidan NTT 2026")
-st.caption("Aplikasi Edukasi Deteksi Dini & Mindfulness Kesehatan Mental Remaja")
+st.caption("Edukasi Personal sesuai Hasil Skrining | Musik Relaksasi | Bantuan Darurat")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["🔍 1. Skrining", "📚 2. Modul Edukasi", "📝 3. Jurnal PINTAR", "🎧 4. Musik Tenang", "🚨 5. Bantuan & Sertifikat"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["🔍 1. Skrining", "📚 2. Edukasi Personal", "📝 3. Jurnal Pintar", "🎧 4. Musik Relaksasi", "🚨 5. Bantuan Darurat"])
 
 # TAB 1 SKRINING
 with tab1:
-    st.subheader("Skrining Awal SRQ-20")
-    st.write("Isi 20 pertanyaan ya/ tidak. Skor >=6 disarankan konseling.")
-    srq_q = ["Sering sakit kepala?", "Tidak nafsu makan?", "Tidur tidak nyenyak?", "Mudah takut?", "Tangan gemetar?", "Merasa gugup?", "Pencernaan buruk?", "Sulit berpikir jernih?", "Merasa tidak bahagia?", "Banyak menangis?", "Sulit menikmati kegiatan?", "Sulit mengambil keputusan?", "Pekerjaan terganggu?", "Tidak mampu berperan?", "Kehilangan minat?", "Merasa tidak berharga?", "Pikiran mengakhiri hidup?", "Merasa lelah?", "Perut tidak enak?", "Mudah lelah?"]
-    skor = 0
+    st.subheader("Skrining SRQ-20")
+    st.write("Jawab Ya/Tidak, nanti edukasi di Tab 2 akan menyesuaikan skor kamu otomatis.")
+    srq_q = ["Sering sakit kepala?","Tidak nafsu makan?","Tidur tidak nyenyak?","Mudah takut?","Tangan gemetar?","Merasa gugup?","Pencernaan buruk?","Sulit berpikir jernih?","Merasa tidak bahagia?","Banyak menangis?","Sulit menikmati kegiatan?","Sulit ambil keputusan?","Pekerjaan terganggu?","Tidak mampu berperan?","Kehilangan minat?","Merasa tidak berharga?","Pikiran mengakhiri hidup?","Merasa lelah?","Perut tidak enak?","Mudah lelah?"]
+    skor=0
     for i,q in enumerate(srq_q):
         if st.radio(f"{i+1}. {q}", ["Tidak","Ya"], key=f"srq{i}", horizontal=True)=="Ya":
             skor+=1
-    st.session_state.skor_srq = skor
+    st.session_state.skor_srq=skor
     st.divider()
     if skor < 6:
-        st.success(f"Skor kamu {skor}/20 - Dalam batas wajar. Tetap jaga kesehatan mental ya!")
+        st.success(f"Skor {skor}/20 - Wajar. Edukasi pencegahan ada di Tab 2.")
+    elif skor < 10:
+        st.warning(f"Skor {skor}/20 - Sedang. Kamu butuh latihan mindfulness rutin, buka Tab 2.")
     else:
-        st.warning(f"Skor kamu {skor}/20 - Di atas ambang. Yuk buka Modul & cerita ke orang terdekat di Tab 5.")
-    if st.button("💾 Simpan Hasil Skrining"):
+        st.error(f"Skor {skor}/20 - Tinggi. Sangat disarankan konseling & lihat Tab 5 Bantuan Darurat.")
+    if st.button("💾 Simpan Skor & Lihat Edukasi Personal di Tab 2"):
         st.balloons()
-        st.info("Hasil tersimpan!")
+        st.info("Skor tersimpan! Buka Tab 2 Edukasi Personal ya.")
 
-# TAB 2 MODUL
+# TAB 2 EDUKASI PERSONAL SESUAI SKOR
 with tab2:
-    st.subheader("📚 Modul Edukasi 8 Topik - Video Sudah Fix")
-    pilih = st.selectbox("Pilih Modul untuk ditonton:", list(MODUL_DATA.keys()))
-    data = MODUL_DATA[pilih]
-    st.info(f"**{pilih}** - {data['desc']}")
-    st.video(data["video"])
-    st.link_button("🔗 Buka di YouTube jika video tidak muncul", data["video"])
-    st.success(f"💡 Edukasi Inti: {data['edukasi']}")
+    st.subheader("📚 Edukasi Personal Sesuai Hasil Skriningmu")
+    skor = st.session_state.skor_srq
+    
+    if skor == 0:
+        st.info("Kamu belum skrining. Isi di Tab 1 dulu ya.")
+    elif skor < 6:
+        st.success(f"**Hasilmu {skor}/20 (Ringan)** - Fokus Pencegahan:")
+        st.markdown("""
+        **MODUL 1: Kenali Emosi:** Semua emosi normal. Tulis 3 emosimu tiap hari.
+        **MODUL 2: Tidur Sehat:** Remaja butuh 8-9 jam. Matikan HP 30 menit sebelum tidur.
+        **MODUL 3: Napas 4-7-8:** Tarik 4 detik, Tahan 7 detik, Buang 8 detik. 3x sehari.
+        **Tugas:** Buat jadwal tidur & jurnal syukur di Tab 3.
+        """)
+    elif skor < 10:
+        st.warning(f"**Hasilmu {skor}/20 (Sedang)** - Kamu butuh coping skill:")
+        st.markdown("""
+        **MODUL 1: Stres & Cemas:** Wajar cemas ujian. Coba Grounding 5-4-3-2-1: Sebut 5 hal dilihat, 4 disentuh, 3 didengar.
+        **MODUL 2: Mindfulness:** Saat pikiran ramai, fokus ke napas 1 menit.
+        **MODUL 3: Komunikasi:** Cari 1 orang dewasa terpercaya untuk cerita.
+        **MODUL 4: Jurnal:** Tulis di Tab 3 apa yang bikin kamu cemas hari ini.
+        **Tugas Wajib:** Dengarkan musik relaksasi di Tab 4 selama 5 menit.
+        """)
+    else:
+        st.error(f"**Hasilmu {skor}/20 (Tinggi)** - Butuh Perhatian Lebih:")
+        st.markdown("""
+        **Kamu tidak sendiri.** Skor tinggi bukan berarti kamu lemah, tapi kamu butuh support lebih.
+        **MODUL 1: Sedih Berkepanjangan:** Jika >2 minggu tidak semangat, cerita ke Guru BK.
+        **MODUL 2: Stop Self-Stigma:** Jangan pendam sendiri.
+        **MODUL 3: Rencana Aman:** Tulis 3 orang yang bisa kamu hubungi, 3 tempat yang bikin tenang, 3 hal yang kamu suka.
+        **MODUL 4: Langkah Hari Ini:** Mandi, minum air, jalan 10 menit.
+        **TUGAS PENTING: Buka Tab 5 Bantuan Darurat & simpan nomor SEJIWA 119 ext 8.**
+        """)
+    st.divider()
+    st.write("**Semua Modul Lengkap (Tulisan):**")
+    with st.expander("Buka Semua 8 Modul Tulisan"):
+        st.write("1. Kenali Emosi | 2. Kenali Stres | 3. Atasi Cemas | 4. Atasi Sedih | 5. Napas 4-7-8 | 6. Tidur Sehat | 7. Komunikasi Asertif | 8. Rencana Sehat Mental")
 
-# TAB 3 JURNAL PINTAR AUTO EDUKASI
+# TAB 3 JURNAL PINTAR
 with tab3:
-    st.subheader("📝 Jurnal Refleksi PINTAR - Auto Saran Sesuai Perasaan")
-    st.caption("Setelah nonton modul, tulis di sini. Sistem akan kasih saran otomatis.")
-    modul_jurnal = st.selectbox("Jurnal untuk Modul:", list(MODUL_DATA.keys()), key="jmod")
-    refleksi = st.text_area("Tulis refleksimu:", placeholder="Hari ini saya belajar... Saya merasa... Contoh: saya sedih sendiri terus nangis", height=150, key="refleksi")
-
-    if st.button("💾 Simpan & Dapatkan Saran Otomatis", type="primary"):
+    st.subheader("📝 Jurnal Pintar - Auto Saran")
+    refleksi = st.text_area("Tulis perasaanmu hari ini:", placeholder="Contoh: hari ini saya cemas ujian, sedih sendiri...", height=150)
+    if st.button("💾 Simpan & Dapat Saran Otomatis", type="primary"):
         if refleksi.strip()=="":
-            st.warning("Tulis dulu perasaanmu ya Kak")
+            st.warning("Tulis dulu ya")
         else:
-            st.session_state.jurnal.append({"waktu": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"), "modul": modul_jurnal, "isi": refleksi})
-            teks = refleksi.lower()
-            st.success("✅ Jurnal tersimpan di HP kamu!")
-
-            if any(k in teks for k in ["bunuh","mati aja","pengen mati","sayat","self harm","lukai"]):
-                st.error("🚨 **Kamu sangat berharga!** SIA deteksi kamu sedang sangat berat. Kamu tidak sendiri. Segera hubungi **SEJIWA 119 ext 8 GRATIS 24 jam** di Tab 5 atau cerita ke orang dewasa yang kamu percaya SEKARANG ya. Tarik napas 4-7-8 dulu.")
-            elif any(k in teks for k in ["sedih","nangis","hampa","kosong","sendiri","down"]):
-                st.info(f"💜 **Untuk rasa sedihmu:** {MODUL_DATA['4. MODUL 4: Sedih Berkepanjangan']['edukasi']} Coba buka Tab 4 Musik Tenang & dengarkan 3 menit ya.")
-            elif any(k in teks for k in ["cemas","takut","khawatir","deg-degan","panik","ujian","gugup"]):
-                st.info(f"🌿 **Untuk rasa cemasmu:** {MODUL_DATA['3. MODUL 3: Cemas & Khawatir']['edukasi']} Yuk latihan napas di Tab 4.")
-            elif any(k in teks for k in ["stres","pusing","capek","banyak tugas","lelah","tertekan"]):
-                st.info(f"✨ **Untuk stresmu:** {MODUL_DATA['2. MODUL 2: Kenali Stres']['edukasi']} Istirahat 5 menit, minum air putih.")
-            elif any(k in teks for k in ["marah","kesal","benci","emosi","ngamuk"]):
-                st.info("🔥 **Untuk rasa marahmu:** Wajar marah. Tunda 5 menit, tarik napas di Tab 4 sebelum bertindak ya.")
+            st.session_state.jurnal.append({"waktu": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"), "isi": refleksi})
+            teks=refleksi.lower()
+            st.success("Tersimpan!")
+            if any(k in teks for k in ["bunuh","mati aja","pengen mati","sayat","lukai"]):
+                st.error("🚨 Kamu berharga! Segera buka TAB 5 & hubungi SEJIWA 119 ext 8 GRATIS 24 jam. Jangan sendiri ya.")
+            elif any(k in teks for k in ["sedih","nangis","hampa","sendiri"]):
+                st.info("💜 Untuk sedihmu: Coba Tab 4 musik 5 menit + tulis 3 hal bersyukur. Kamu tidak sendiri.")
+            elif any(k in teks for k in ["cemas","takut","khawatir","panik"]):
+                st.info("🌿 Untuk cemasmu: Lakukan Grounding 5-4-3-2-1 & napas 4-7-8 di Tab 4.")
+            elif any(k in teks for k in ["stres","capek","pusing","tugas"]):
+                st.info("✨ Untuk stresmu: Istirahat 5 menit, minum air, jalan sebentar. Buka edukasi Tab 2.")
             else:
-                st.info(f"🌈 Keren sudah menulis! Saran dari {modul_jurnal}: {MODUL_DATA[modul_jurnal]['edukasi']}")
-
+                st.info("🌈 Keren sudah jujur! Lanjutkan jurnal tiap hari ya.")
     if st.session_state.jurnal:
         st.divider()
-        st.write("**📖 Riwayat Jurnalmu (tersimpan di HP):**")
         for j in reversed(st.session_state.jurnal):
-            st.write(f"_{j['waktu']} - {j['modul']}_")
+            st.write(f"_{j['waktu']}_")
             st.write(f"> {j['isi']}")
             st.write("---")
 
-# TAB 4 MUSIK
+# TAB 4 MUSIK YOUTUBE
 with tab4:
-    st.subheader("🎧 Musik Tenang & Latihan Napas")
-    st.write("Putar musik ini sambil latihan napas 4-7-8")
-    st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-    st.info("**Latihan 4-7-8:** Tarik napas 4 detik -> Tahan 7 detik -> Buang 8 detik. Ulangi 3x.")
-    if st.button("Mulai Timer 3 Menit"):
-        st.success("Mulai... Tarik... Tahan... Buang... Fokus ke napas ya 💜")
+    st.subheader("🎧 Musik Relaksasi - YouTube (Pasti Bunyi)")
+    st.write("Pilih musik, pakai headset, tarik napas 4-7-8")
+    pilihan = st.selectbox("Pilih Musik:", ["Relaksasi Napas 4-7-8", "Musik Tidur Tenang", "Suara Hujan Tenang", "Musik Meditasi 5 Menit"])
+    if pilihan == "Relaksasi Napas 4-7-8":
+        st.video("https://www.youtube.com/watch?v=QKkxl1Z1i1o")
+    elif pilihan == "Musik Tidur Tenang":
+        st.video("https://www.youtube.com/watch?v=77ZozI0rw7w")
+    elif pilihan == "Suara Hujan Tenang":
+        st.video("https://www.youtube.com/watch?v=mPZkdNFkNps")
+    else:
+        st.video("https://www.youtube.com/watch?v=5Y76XIgwVyI")
+    st.link_button("🔗 Buka di YouTube (jika tidak bunyi)", "https://www.youtube.com/results?search_query=musik+relaksasi+tidur")
+    st.info("**Cara:** Tarik 4 detik - Tahan 7 detik - Buang 8 detik sambil dengar musik.")
 
-# TAB 5 BANTUAN
+# TAB 5 BANTUAN DARURAT JELAS
 with tab5:
-    st.subheader("🚨 Bantuan & Sertifikat Penyelesaian")
-    st.error("Jika ada pikiran menyakiti diri / sangat berat, segera hubungi:")
-    st.write("**SEJIWA 119 ext 8 - GRATIS 24 Jam - Kemenkes RI**")
-    st.link_button("📞 Chat WA SEJIWA 119", "https://wa.me/62811881119")
-    st.link_button("📍 Cari Puskesmas Terdekat", "https://www.google.com/maps/search/puskesmas+terdekat/")
+    st.subheader("🚨 Bantuan Darurat - Tombol Langsung Klik")
+    st.error("Jika kamu atau temanmu ada pikiran menyakiti diri, JANGAN SENDIRI. Klik di bawah ini SEKARANG:")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.link_button("📞 SEJIWA 119 ext 8 - GRATIS 24 JAM", "https://wa.me/62811881119", type="primary", use_container_width=True)
+        st.link_button("📍 PUSKESMAS TERDEKAT", "https://www.google.com/maps/search/puskesmas+terdekat/", use_container_width=True)
+    with col2:
+        st.link_button("💬 HALO KEMENKES 1500-567", "tel:1500567", type="primary", use_container_width=True)
+        st.link_button("👩‍🏫 HUBUNGI GURU BK", "https://wa.me/", use_container_width=True)
+    
     st.divider()
-    st.write(f"Skor Skrining Terakhir: **{st.session_state.skor_srq}/20** | Jumlah Jurnal: **{len(st.session_state.jurnal)}**")
-    if st.button("🎓 Download Sertifikat Telah Menyelesaikan Mindful by Isra"):
+    st.write(f"**Ringkasanmu:** Skor {st.session_state.skor_srq}/20 | Jurnal {len(st.session_state.jurnal)} entri")
+    st.success("Simpan nomor SEJIWA di HP: **119 ext 8**")
+    
+    if st.button("🎓 Download Sertifikat Penyelesaian"):
         st.balloons()
-        st.success(f"Selamat! Sertifikat untuk partisipan Mindful by Isra - NTT 2026 - Skor: {st.session_state.skor_srq}/20 - Tgl: {datetime.datetime.now().strftime('%d %B %Y')}")
-        st.caption("Screenshot halaman ini sebagai bukti untuk skripsi ya Kak!")
+        st.success(f"SERTIFIKAT: Telah menyelesaikan Mindful by Isra - Skor {st.session_state.skor_srq} - {datetime.datetime.now().strftime('%d %B %Y')} - Screenshot halaman ini ya!")
