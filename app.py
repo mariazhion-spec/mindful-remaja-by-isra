@@ -3,7 +3,7 @@ import datetime
 
 # === V5.1 FIX STABIL - KONSEP ASLI TETAP - Mindful Remaja by Isra ===
 try:
-    st.set_page_config(page_title="Mindful Remaja by Isra", page_icon="💜", layout="wide")
+    st.set_page_config(page_title="Mindful Remaja by Isra", page_icon="logo.png", layout="wide")
 except:
     pass
 
